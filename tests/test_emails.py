@@ -18,12 +18,16 @@ class TestEMails(unittest.TestCase):
         if html:
             with open(os.path.join(EMAIL_DIR, html)) as f:
                 html = f.read()
-            self.assertEqual(email.html.strip(), html.strip(), msg="HTML output mismatch")
+            self.assertEqual(
+                email.html.strip(), html.strip(), msg="HTML output mismatch"
+            )
 
         if text:
             with open(os.path.join(EMAIL_DIR, text)) as f:
                 text = f.read()
-            self.assertEqual(email.text.strip(), text.strip(), msg="Plain text output mismatch")
+            self.assertEqual(
+                email.text.strip(), text.strip(), msg="Plain text output mismatch"
+            )
 
         return email
 

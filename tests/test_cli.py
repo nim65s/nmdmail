@@ -2,7 +2,7 @@ import os
 import unittest
 from unittest.mock import patch
 
-from .context import cli, nmdmail
+from .context import cli
 
 os.environ.update(
     {

@@ -6,7 +6,6 @@ This is mainly used to generate test cases.
 """
 
 import argparse
-import os
 
 import nmdmail
 

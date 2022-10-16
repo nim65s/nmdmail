@@ -1,5 +1,4 @@
 import re
-import six
 
 
 def sanitize_email_address(address):

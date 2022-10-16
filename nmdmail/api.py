@@ -4,6 +4,7 @@ import os
 import emails
 import markdown
 from bs4 import BeautifulSoup
+
 from nmdmail.helpers import is_string, sanitize_email_address
 
 
