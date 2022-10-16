@@ -3,8 +3,8 @@ nMdmail: Send emails written in Markdown
 
 Fork of https://github.com/yejianye/mdmail, which looks dead.
 
-[![Build Status](https://travis-ci.org/yejianye/mdmail.svg?branch=master)](https://travis-ci.org/yejianye/mdmail)
-[![Coverage Status](https://coveralls.io/repos/github/yejianye/mdmail/badge.svg)](https://coveralls.io/github/yejianye/mdmail)
+[![Build Status](https://travis-ci.org/nim65s/mdmail.svg?branch=master)](https://travis-ci.org/nim65s/mdmail)
+[![Coverage Status](https://coveralls.io/repos/github/nim65s/mdmail/badge.svg)](https://coveralls.io/github/nim65s/mdmail)
 
 nMdmail sends emails written in Markdown. It could be used as a standalone command-line script or as a python module. The features includes
 
