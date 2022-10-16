@@ -1,10 +1,14 @@
-nMdmail: Send emails written in Markdown
-=======================================
+# nMdmail: Send emails written in Markdown
 
 Fork of https://github.com/yejianye/mdmail, which looks dead.
 
-[![Build Status](https://travis-ci.org/nim65s/mdmail.svg?branch=master)](https://travis-ci.org/nim65s/mdmail)
-[![Coverage Status](https://coveralls.io/repos/github/nim65s/mdmail/badge.svg)](https://coveralls.io/github/nim65s/mdmail)
+[![PyPI version](https://badge.fury.io/py/nmdmail.svg)](https://pypi.org/project/nmdmail)
+[![Tests](https://github.com/nim65s/nmdmail/actions/workflows/test.yml/badge.svg)](https://github.com/nim65s/nmdmail/actions/workflows/test.yml)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/nim65s/nmdmail/master.svg)](https://results.pre-commit.ci/latest/github/nim65s/nmdmail/master)
+[![codecov](https://codecov.io/gh/nim65s/nmdmail/branch/master/graph/badge.svg?token=BLGISGCYKG)](https://codecov.io/gh/nim65s/nmdmail)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6737a84239590ddc0d1e/maintainability)](https://codeclimate.com/github/nim65s/nmdmail/maintainability)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 
 nMdmail sends emails written in Markdown. It could be used as a standalone command-line script or as a python module. The features includes
 
@@ -18,11 +22,10 @@ Screenshot of an email sent via nmdmail viewed in Google Inbox
 To install nmdmail
 
 ```bash
-$ pip install nmdmail
+$ python -m pip install nmdmail
 ```
 
-Send Email in Command-line
---------------------------
+## Send Email in Command-line
 
 When sending emails from command-line, the body of the email could be read from a file or stdin.
 
@@ -77,8 +80,8 @@ Full help of `nmdmail` command-line script
 
 ```bash
 usage: nmdmail [-h] [--subject SUBJECT] [--from FROM_] [--to TO] [--cc CC]
-              [--bcc BCC] [--reply-to REPLY_TO] [--css CSS] [--print-only]
-              [file]
+               [--bcc BCC] [--reply-to REPLY_TO] [--css CSS] [--print-only]
+               [file]
 
 Send email written in Markdown.
 
@@ -100,8 +103,7 @@ optional arguments:
   --print-only, -p      Only print out rendered html
 ```
 
-Send Email in Python Code
---------------------------
+## Send Email in Python Code
 
 Sending emails in python is straight-forward.
 
@@ -123,7 +125,7 @@ nmdmail.send(email, subject='Sample Email',
 
 By default, it will use SMTP server on localhost. You could specify a SMTP server as well.
 
-```
+```python
 # Specify SMTP server
 smtp = {
   'host: 'my-mailserver.com',
@@ -134,9 +136,11 @@ smtp = {
   'password': '',
 }
 
-nmdmail.send(content, subject='Sample Email',
-            from_email='foo@example.com', to_email='bar@example.com',
-            smtp=smtp)
+nmdmail.send(content,
+             subject='Sample Email',
+             from_email='foo@example.com',
+             to_email='bar@example.com',
+             smtp=smtp)
 ```
 
 
@@ -157,8 +161,7 @@ nmdmail.send(content, subject='Sample Email',
     - *user* (bool): SMTP login user. Default empty
     - *password* (bool): SMTP login password. Default empty
 
-Use nmdmail with Vim and Emacs
--------------------------------
+## Use nmdmail with Vim and Emacs
 
 Since `nmdmail` can read from stdin and support email headers such as subject/from/to in the markdown file itself,
 integrating nmdmail with Vim, Emacs or other text editors is easy.
