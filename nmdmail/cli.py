@@ -6,8 +6,8 @@ import os
 import sys
 from argparse import ArgumentParser, RawTextHelpFormatter
 
-import mdmail
-from mdmail.helpers import to_bool
+import nmdmail
+from nmdmail.helpers import to_bool
 
 
 def main(cli_args=None):
@@ -42,7 +42,7 @@ def main(cli_args=None):
     else:
         css = None
 
-    email_content = mdmail.EmailContent(content, css=css, image_root=image_root)
+    email_content = nmdmail.EmailContent(content, css=css, image_root=image_root)
 
     if not args.from_:
         from_email = email_content.headers.get("from") or os.environ.get(
@@ -66,7 +66,7 @@ def main(cli_args=None):
         print("==========Plain-text Content===========")
         print(email_content.text + "\n")
     else:
-        mdmail.send(
+        nmdmail.send(
             email_content,
             subject=args.subject,
             from_email=from_email,

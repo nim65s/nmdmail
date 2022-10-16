@@ -2,7 +2,7 @@ import os
 
 from unittest.mock import patch
 
-from .context import mdmail
+from .context import nmdmail
 
 EMAIL_DIR = os.path.join(os.path.dirname(__file__), "emails")
 
@@ -11,7 +11,7 @@ def validate_email_content(email_file, html=None, text=None):
     email_file = os.path.join(EMAIL_DIR, email_file)
     email_content = open(email_file, encoding="utf-8").read()
     image_root = os.path.dirname(email_file)
-    email = mdmail.EmailContent(email_content, image_root=image_root)
+    email = nmdmail.EmailContent(email_content, image_root=image_root)
 
     if html:
         html = open(os.path.join(EMAIL_DIR, html), encoding="utf-8").read()
@@ -37,7 +37,7 @@ def test_email_with_headers(message_mock):
     email = validate_email_content(
         "email_headers.md", html="email_headers.html", text="email_headers.txt"
     )
-    mdmail.send(email)
+    nmdmail.send(email)
     message_args = message_mock.call_args[1]
     assert message_args["subject"] == "Email Header Test"
     assert message_args["mail_from"] == "from@test.com"

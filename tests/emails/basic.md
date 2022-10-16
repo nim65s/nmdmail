@@ -12,7 +12,7 @@
 
 ## Links
 
-[Mdmail on Github](https://github.com/yejianye/mdmail)
+[nMdmail on Github](https://github.com/yejianye/nmdmail)
 
 ## Code
 

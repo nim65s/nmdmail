@@ -1,8 +1,7 @@
 import os
-
 from unittest.mock import patch
 
-from .context import mdmail, cli
+from .context import cli, nmdmail
 
 
 def setup():
@@ -24,7 +23,7 @@ class StdinMock:
         return "Content from Stdin"
 
 
-@patch("mdmail.send")
+@patch("nmdmail.send")
 def test_cli(send_mock):
     md_file = os.path.join(os.path.dirname(__file__), "emails/basic.md")
     cli.main(
@@ -57,7 +56,7 @@ def test_cli(send_mock):
     }
 
 
-@patch("mdmail.send")
+@patch("nmdmail.send")
 def test_default_sender(send_mock):
     md_file = os.path.join(os.path.dirname(__file__), "emails/basic.md")
     cli.main(["--subject", "Hello World", "--to=to@test.com", md_file])
@@ -65,14 +64,14 @@ def test_default_sender(send_mock):
 
 
 @patch("sys.stdin", new_callable=StdinMock)
-@patch("mdmail.EmailContent")
-@patch("mdmail.send")
+@patch("nmdmail.EmailContent")
+@patch("nmdmail.send")
 def test_read_from_stdin(send_mock, email_mock, stdin_mock):
     cli.main(["--subject", "Hello World", "--to=to@test.com"])
     assert email_mock.call_args[0] == ("Content from Stdin",)
 
 
-@patch("mdmail.send")
+@patch("nmdmail.send")
 def test_print_only(send_mock):
     md_file = os.path.join(os.path.dirname(__file__), "emails/basic.md")
     cli.main(["--subject", "Hello World", "--to=to@test.com", "--print-only", md_file])

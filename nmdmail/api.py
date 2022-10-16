@@ -1,11 +1,10 @@
-import os
 import hashlib
+import os
 
 import emails
 import markdown
 from bs4 import BeautifulSoup
-
-from mdmail.helpers import sanitize_email_address, is_string
+from nmdmail.helpers import is_string, sanitize_email_address
 
 
 def send(

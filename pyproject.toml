@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "mdmail"
+name = "nmdmail"
 version = "0.2.0"
 description = "Send emails written in Markdown"
 authors = [
@@ -12,7 +12,7 @@ keywords = ['markdown', 'html', 'email', 'inline css']
 homepage = 'https://github.com/nim65s/nmdmail'
 
 [tool.poetry.scripts]
-mdmail = 'mdmail.cli:main'
+nmdmail = 'nmdmail.cli:main'
 
 [tool.poetry.dependencies]
 python = "^3.7"

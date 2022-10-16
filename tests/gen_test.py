@@ -8,7 +8,7 @@ This is mainly used to generate test cases.
 import argparse
 import os
 
-import mdmail
+import nmdmail
 
 
 def main():
@@ -18,7 +18,7 @@ def main():
     parser.add_argument("file", help="Markdown file for email content")
     args = parser.parse_args()
     content = open(args.file, encoding="utf-8").read()
-    email = mdmail.EmailContent(content)
+    email = nmdmail.EmailContent(content)
     base_fname = args.file.rsplit(".", 1)[0]
     html_fname = base_fname + ".html"
     with open(html_fname, "w", encoding="utf-8") as f:

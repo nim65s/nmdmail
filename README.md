@@ -6,19 +6,19 @@ Fork of https://github.com/yejianye/mdmail, which looks dead.
 [![Build Status](https://travis-ci.org/yejianye/mdmail.svg?branch=master)](https://travis-ci.org/yejianye/mdmail)
 [![Coverage Status](https://coveralls.io/repos/github/yejianye/mdmail/badge.svg)](https://coveralls.io/github/yejianye/mdmail)
 
-Mdmail sends emails written in Markdown. It could be used as a standalone command-line script or as a python module. The features includes
+nMdmail sends emails written in Markdown. It could be used as a standalone command-line script or as a python module. The features includes
 
 - Have a sane default CSS style and support CSS customization
 - Support local images as inline images
 
-Screenshot of an email sent via mdmail viewed in Google Inbox
+Screenshot of an email sent via nmdmail viewed in Google Inbox
 
 <img src="screenshot.png" height="640"></img>
 
-To install mdmail
+To install nmdmail
 
 ```bash
-$ pip install mdmail
+$ pip install nmdmail
 ```
 
 Send Email in Command-line
@@ -43,22 +43,22 @@ Cc: baz@xyz.com
 ![Embed local image](../assets/image.jpg)
 ```
 
-To send this email with mdmail
+To send this email with nmdmail
 
 ```bash
-$ mdmail sample_email.md
+$ nmdmail sample_email.md
 ```
 
 Here is an example of specifying subject, from/to in command-line
 
 ```bash
-$ mdmail --from=foo@xyz.com --to=bar@xyz.com --subject='Sample' sample_email.md
+$ nmdmail --from=foo@xyz.com --to=bar@xyz.com --subject='Sample' sample_email.md
 ```
 
 To read email content from stdin,
 
 ```bash
-$ echo '# Sample Email' | mdmail --from=foo@xyz.com --to=bar@xyz.com --subject='Sample'
+$ echo '# Sample Email' | nmdmail --from=foo@xyz.com --to=bar@xyz.com --subject='Sample'
 ```
 
 SMTP server configurations are read from the following environment variables
@@ -73,10 +73,10 @@ export MDMAIL_PASSWORD="" # default: None
 export MDMAIL_DEFAULT_SENDER="" # default: None
 ```
 
-Full help of `mdmail` command-line script
+Full help of `nmdmail` command-line script
 
 ```bash
-usage: mdmail [-h] [--subject SUBJECT] [--from FROM_] [--to TO] [--cc CC]
+usage: nmdmail [-h] [--subject SUBJECT] [--from FROM_] [--to TO] [--cc CC]
               [--bcc BCC] [--reply-to REPLY_TO] [--css CSS] [--print-only]
               [file]
 
@@ -106,7 +106,7 @@ Send Email in Python Code
 Sending emails in python is straight-forward.
 
 ```python
-import mdmail
+import nmdmail
 
 email="""
 # Sample Email
@@ -117,7 +117,7 @@ email="""
 ![Embed local image](../assets/image.jpg)
 """
 
-mdmail.send(email, subject='Sample Email',
+nmdmail.send(email, subject='Sample Email',
             from_email='foo@example.com', to_email='bar@example.com')
 ```
 
@@ -134,13 +134,13 @@ smtp = {
   'password': '',
 }
 
-mdmail.send(content, subject='Sample Email',
+nmdmail.send(content, subject='Sample Email',
             from_email='foo@example.com', to_email='bar@example.com',
             smtp=smtp)
 ```
 
 
-### API documentation `mdmail.send`
+### API documentation `nmdmail.send`
 
 - **email** (str/obj): A markdown string or EmailContent object
 - **subject** (str): subject line
@@ -157,19 +157,21 @@ mdmail.send(content, subject='Sample Email',
     - *user* (bool): SMTP login user. Default empty
     - *password* (bool): SMTP login password. Default empty
 
-Use mdmail with Vim and Emacs
+Use nmdmail with Vim and Emacs
 -------------------------------
 
-Since `mdmail` can read from stdin and support email headers such as subject/from/to in the markdown file itself, integrating mdmail with Vim, Emacs or other text editors is easy.
+Since `nmdmail` can read from stdin and support email headers such as subject/from/to in the markdown file itself,
+integrating nmdmail with Vim, Emacs or other text editors is easy.
 
-To use mdmail in Vim, just write a markdown email with headers, and then execute `w !mdmail` command, which will send current buffer as stdin to mdmail.
+To use nmdmail in Vim, just write a markdown email with headers, and then execute `w !nmdmail` command, which will send
+current buffer as stdin to nmdmail.
 
 In Emacs, you could write a small function to do the same thing
 
 ```lisp
-(defun mdmail-send-buffer ()
+(defun nmdmail-send-buffer ()
   (interactive)
-  (shell-command-on-region (point-min) (point-max) "mdmail"))
+  (shell-command-on-region (point-min) (point-max) "nmdmail"))
 ```
 
-Then `M-x mdmail-send-buffer` will send current buffer to mdmail.
+Then `M-x nmdmail-send-buffer` will send current buffer to nmdmail.
