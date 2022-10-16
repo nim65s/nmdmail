@@ -1,5 +1,7 @@
-Mdmail: Send emails written in Markdown
+nMdmail: Send emails written in Markdown
 =======================================
+
+Fork of https://github.com/yejianye/mdmail, which looks dead.
 
 [![Build Status](https://travis-ci.org/yejianye/mdmail.svg?branch=master)](https://travis-ci.org/yejianye/mdmail)
 [![Coverage Status](https://coveralls.io/repos/github/yejianye/mdmail/badge.svg)](https://coveralls.io/github/yejianye/mdmail)
@@ -53,7 +55,7 @@ Here is an example of specifying subject, from/to in command-line
 $ mdmail --from=foo@xyz.com --to=bar@xyz.com --subject='Sample' sample_email.md
 ```
 
-To read email content from stdin, 
+To read email content from stdin,
 
 ```bash
 $ echo '# Sample Email' | mdmail --from=foo@xyz.com --to=bar@xyz.com --subject='Sample'
@@ -118,7 +120,7 @@ email="""
 mdmail.send(email, subject='Sample Email',
             from_email='foo@example.com', to_email='bar@example.com')
 ```
-            
+
 By default, it will use SMTP server on localhost. You could specify a SMTP server as well.
 
 ```
@@ -138,9 +140,9 @@ mdmail.send(content, subject='Sample Email',
 ```
 
 
-### API documentation `mdmail.send` 
+### API documentation `mdmail.send`
 
-- **email** (str/obj): A markdown string or EmailContent object 
+- **email** (str/obj): A markdown string or EmailContent object
 - **subject** (str): subject line
 - **from_email** (str): sender email address
 - **to_email** (str/list): recipient email addresses
