@@ -4,8 +4,8 @@ Fork of https://github.com/yejianye/mdmail, which looks dead.
 
 [![PyPI version](https://badge.fury.io/py/nmdmail.svg)](https://pypi.org/project/nmdmail)
 [![Tests](https://github.com/nim65s/nmdmail/actions/workflows/test.yml/badge.svg)](https://github.com/nim65s/nmdmail/actions/workflows/test.yml)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/nim65s/nmdmail/master.svg)](https://results.pre-commit.ci/latest/github/nim65s/nmdmail/master)
-[![codecov](https://codecov.io/gh/nim65s/nmdmail/branch/master/graph/badge.svg?token=BLGISGCYKG)](https://codecov.io/gh/nim65s/nmdmail)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/nim65s/nmdmail/main.svg)](https://results.pre-commit.ci/latest/github/nim65s/nmdmail/main)
+[![codecov](https://codecov.io/gh/nim65s/nmdmail/branch/main/graph/badge.svg?token=BLGISGCYKG)](https://codecov.io/gh/nim65s/nmdmail)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6737a84239590ddc0d1e/maintainability)](https://codeclimate.com/github/nim65s/nmdmail/maintainability)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 

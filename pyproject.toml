@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nmdmail"
-version = "0.2.0"
+version = "0.1.4"
 description = "Send emails written in Markdown"
 authors = [
     "Guilhem Saurel <guilhem.saurel@laas.fr>",
@@ -10,6 +10,10 @@ license = "BSD-2-Clause"
 readme = "README.md"
 keywords = ['markdown', 'html', 'email', 'inline css']
 homepage = 'https://github.com/nim65s/nmdmail'
+repository = "https://github.com/nim65s/nmdmail.git"
+
+[tool.poetry.urls]
+changelog = "https://github.com/nim65s/nmdmail/blob/main/CHANGELOG.md"
 
 [tool.poetry.scripts]
 nmdmail = 'nmdmail.cli:main'
