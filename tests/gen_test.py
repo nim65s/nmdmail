@@ -7,7 +7,6 @@ This is mainly used to generate test cases.
 
 import argparse
 import os
-from io import open
 
 import mdmail
 

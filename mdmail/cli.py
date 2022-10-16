@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 """Send email written in Markdown.
 """
-from __future__ import print_function
 
 import os
 import sys
 from argparse import ArgumentParser, RawTextHelpFormatter
-from io import open
 
 import mdmail
 from mdmail.helpers import to_bool

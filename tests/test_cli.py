@@ -1,10 +1,6 @@
-# -*- coding: utf-8 -*-
-from __future__ import print_function
-
 import os
-from io import open
 
-from mock import patch
+from unittest.mock import patch
 
 from .context import mdmail, cli
 
@@ -23,7 +19,7 @@ def setup():
     )
 
 
-class StdinMock(object):
+class StdinMock:
     def read(self):
         return "Content from Stdin"
 

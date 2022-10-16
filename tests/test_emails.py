@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 import os
-from io import open
 
-from mock import patch
+from unittest.mock import patch
 
 from .context import mdmail
 

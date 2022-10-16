@@ -23,7 +23,7 @@ def sanitize_email_address(address):
 
 
 def is_string(val):
-    return isinstance(val, six.string_types)
+    return isinstance(val, str)
 
 
 def to_bool(val):

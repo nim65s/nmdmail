@@ -1,6 +1,5 @@
 import os
 import hashlib
-from io import open
 
 import emails
 import markdown
@@ -70,7 +69,7 @@ def send(
     message.send(smtp=smtp)
 
 
-class EmailContent(object):
+class EmailContent:
     def __init__(self, content, css=None, image_root="."):
         """Constructor
 
