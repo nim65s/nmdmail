@@ -17,7 +17,7 @@ jobs:
 
       - name: setup
         run: |
-          python -m pip install -U poetry
+          curl -sSL https://install.python-poetry.org | python3 -
           poetry install --no-interaction --no-ansi
       - run: poetry run ./manage.py migrate
       - run: poetry run coverage run manage.py test
