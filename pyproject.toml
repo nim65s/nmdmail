@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "mdmail"
+version = "0.2.0"
+description = "Send emails written in Markdown"
+authors = [
+    "Guilhem Saurel <guilhem.saurel@laas.fr>",
+    "Jianye Ye <yejianye@gmail.com>"
+]
+license = "BSD-2-Clause"
+readme = "README.md"
+keywords = ['markdown', 'html', 'email', 'inline css']
+homepage = 'https://github.com/nim65s/nmdmail'
+
+[tool.poetry.scripts]
+mdmail = 'mdmail.cli:main'
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Markdown = "^3.4.1"
+premailer = "^3.10.0"
+emails = "^0.6"
+lxml = "^4.9.1"
+beautifulsoup4 = "^4.11.1"
+six = "^1.16.0"
+
+[tool.poetry.group.tests.dependencies]
+nose = "^1.3.7"
+mock = "^4.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
