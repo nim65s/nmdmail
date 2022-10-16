@@ -19,6 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Latest version from @yejianye
 
-[Unreleased]: https://github.com/nim65s/ndh/compare/v0.1.4...main
-[v0.1.4]: https://github.com/nim65s/ndh/releases/tag/v0.1.4
+[Unreleased]: https://github.com/nim65s/nmdmail/compare/v0.1.4...main
+[v0.1.4]: https://github.com/nim65s/nmdmail/releases/tag/v0.1.4
 [v0.1.3]: https://github.com/yejianye/mdmail
