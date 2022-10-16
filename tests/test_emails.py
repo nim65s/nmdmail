@@ -1,5 +1,5 @@
 import os
-
+import unittest
 from unittest.mock import patch
 
 from .context import nmdmail
@@ -7,41 +7,48 @@ from .context import nmdmail
 EMAIL_DIR = os.path.join(os.path.dirname(__file__), "emails")
 
 
-def validate_email_content(email_file, html=None, text=None):
-    email_file = os.path.join(EMAIL_DIR, email_file)
-    email_content = open(email_file, encoding="utf-8").read()
-    image_root = os.path.dirname(email_file)
-    email = nmdmail.EmailContent(email_content, image_root=image_root)
+class TestEMails(unittest.TestCase):
+    def validate_email_content(self, email_file, html=None, text=None):
+        email_file = os.path.join(EMAIL_DIR, email_file)
+        with open(email_file) as f:
+            email_content = f.read()
+        image_root = os.path.dirname(email_file)
+        email = nmdmail.EmailContent(email_content, image_root=image_root)
 
-    if html:
-        html = open(os.path.join(EMAIL_DIR, html), encoding="utf-8").read()
-        assert "HTML output mismatch", email.html == html
+        if html:
+            with open(os.path.join(EMAIL_DIR, html)) as f:
+                html = f.read()
+            self.assertEqual(email.html.strip(), html.strip(), msg="HTML output mismatch")
 
-    if text:
-        text = open(os.path.join(EMAIL_DIR, text), encoding="utf-8").read()
-        assert "Plain text output mismatch", email.text == text
+        if text:
+            with open(os.path.join(EMAIL_DIR, text)) as f:
+                text = f.read()
+            self.assertEqual(email.text.strip(), text.strip(), msg="Plain text output mismatch")
 
-    return email
+        return email
+
+    def test_basic(self):
+        self.validate_email_content("basic.md", html="basic.html", text="basic.txt")
+
+    def test_unicode(self):
+        self.validate_email_content(
+            "unicode.md", html="unicode.html", text="unicode.txt"
+        )
+
+    @patch("emails.Message")
+    def test_email_with_headers(self, message_mock):
+        email = self.validate_email_content(
+            "email_headers.md", html="email_headers.html", text="email_headers.txt"
+        )
+        nmdmail.send(email)
+        message_args = message_mock.call_args[1]
+        self.assertEqual(message_args["subject"], "Email Header Test")
+        self.assertEqual(message_args["mail_from"], "from@test.com")
+        self.assertEqual(message_args["mail_to"], "to@test.com")
+        self.assertEqual(message_args["cc"], ["cc1@test.com", "cc2@test.com"])
+        self.assertEqual(message_args["bcc"], "bcc@test.com")
+        self.assertEqual(message_args["headers"], {"reply-to": "reply-to@test.com"})
 
 
-def test_basic():
-    validate_email_content("basic.md", html="basic.html", text="basic.txt")
-
-
-def test_unicode():
-    validate_email_content("unicode.md", html="unicode.html", text="unicode.txt")
-
-
-@patch("emails.Message")
-def test_email_with_headers(message_mock):
-    email = validate_email_content(
-        "email_headers.md", html="email_headers.html", text="email_headers.txt"
-    )
-    nmdmail.send(email)
-    message_args = message_mock.call_args[1]
-    assert message_args["subject"] == "Email Header Test"
-    assert message_args["mail_from"] == "from@test.com"
-    assert message_args["mail_to"] == "to@test.com"
-    assert message_args["cc"] == ["cc1@test.com", "cc2@test.com"]
-    assert message_args["bcc"] == "bcc@test.com"
-    assert message_args["headers"] == {"reply-to": "reply-to@test.com"}
+if __name__ == "__main__":
+    unittest.main()

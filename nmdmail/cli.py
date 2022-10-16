@@ -31,14 +31,16 @@ def main(cli_args=None):
         args = parser.parse_args()
 
     if args.file:
-        content = open(args.file, encoding="utf-8").read()
+        with open(args.file) as f:
+            content = f.read()
         image_root = os.path.dirname(args.file)
     else:
         content = sys.stdin.read()
         image_root = os.getcwd()
 
     if args.css:
-        css = open(args.css, encoding="utf-8").read()
+        with open(args.css) as f:
+            css = f.read()
     else:
         css = None
 

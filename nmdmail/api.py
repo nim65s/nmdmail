@@ -97,7 +97,8 @@ class EmailContent:
                 )
                 if src_uid not in inlines:
                     img_path = os.path.join(image_root, src)
-                    inlines[src_uid] = open(img_path, "rb")
+                    with open(img_path, "rb") as f:
+                        inlines[src_uid] = f
                 img["src"] = "cid:" + src_uid
         self._inline_images = inlines.items()
         return soup
@@ -105,7 +106,7 @@ class EmailContent:
     def _inline_css(self, html, css):
         if not css:
             default_css = os.path.join(os.path.dirname(__file__), "default.css")
-            with open(default_css, encoding="utf-8") as f:
+            with open(default_css) as f:
                 css = f.read()
         email_html_template = """
         <!doctype html>

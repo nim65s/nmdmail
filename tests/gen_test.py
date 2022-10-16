@@ -17,15 +17,16 @@ def main():
     )
     parser.add_argument("file", help="Markdown file for email content")
     args = parser.parse_args()
-    content = open(args.file, encoding="utf-8").read()
+    with open(args.file) as f:
+        content = f.read()
     email = nmdmail.EmailContent(content)
     base_fname = args.file.rsplit(".", 1)[0]
     html_fname = base_fname + ".html"
-    with open(html_fname, "w", encoding="utf-8") as f:
+    with open(html_fname, "w") as f:
         f.write(email.html)
 
     text_fname = base_fname + ".txt"
-    with open(text_fname, "w", encoding="utf-8") as f:
+    with open(text_fname, "w") as f:
         f.write(email.text)
 
 
