@@ -1,12 +1,13 @@
 import re
+from typing import Any, List, Union
 
 
-def sanitize_email_address(address):
+def sanitize_email_address(address: Union[str, None, List[str]]) -> Any:
     if address is None:
         return None
 
     if isinstance(address, (list, tuple)):
-        return [sanitize_email_address(a) for a in address]
+        return [sanitize_email_address(a) for a in address if a is not None]
 
     if "," in address:
         return sanitize_email_address(address.split(","))
@@ -21,11 +22,7 @@ def sanitize_email_address(address):
         return address
 
 
-def is_string(val):
-    return isinstance(val, str)
-
-
-def to_bool(val):
-    if is_string(val):
+def to_bool(val) -> bool:
+    if isinstance(val, str):
         return val.lower() in ("1", "true", "yes", "y")
     return bool(val)

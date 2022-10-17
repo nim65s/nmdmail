@@ -1,72 +1,12 @@
 import hashlib
 import os
+from typing import Dict, List, Optional, Union
 
-import emails
+import emails  # type: ignore
 import markdown
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup  # type: ignore
 
-from nmdmail.helpers import is_string, sanitize_email_address
-
-
-def send(
-    email,
-    subject=None,
-    from_email=None,
-    to_email=None,
-    cc=None,
-    bcc=None,
-    reply_to=None,
-    smtp=None,
-):
-    """Send markdown email
-
-    Args:
-        email (str/obj): A markdown string or EmailContent object
-        subject (str): subject line
-        from_email (str): sender email address
-        to_email (str/list): recipient email addresses
-        cc (str/list): CC email addresses (string or a list)
-        bcc (str/list): BCC email addresses (string or a list)
-        reply_to (str): Reply-to email address
-        smtp (dict): SMTP configuration (dict)
-
-    Schema of smtp dict:
-        host (str): SMTP server host. Default: localhost
-        port (int): SMTP server port. Default: 25
-        tls (bool): Use TLS. Default: False
-        ssl (bool): Use SSL. Default: False
-        user (bool): SMTP login user. Default empty
-        password (bool): SMTP login password. Default empty
-    """
-    if is_string(email):
-        email = EmailContent(email)
-
-    from_email = sanitize_email_address(from_email or email.headers.get("from"))
-    to_email = sanitize_email_address(to_email or email.headers.get("to"))
-    cc = sanitize_email_address(cc or email.headers.get("cc"))
-    bcc = sanitize_email_address(bcc or email.headers.get("bcc"))
-    reply_to = sanitize_email_address(reply_to or email.headers.get("reply-to"))
-
-    message_args = {
-        "html": email.html,
-        "text": email.text,
-        "subject": (subject or email.headers.get("subject", "")),
-        "mail_from": from_email,
-        "mail_to": to_email,
-    }
-    if cc:
-        message_args["cc"] = cc
-    if bcc:
-        message_args["bcc"] = bcc
-    if reply_to:
-        message_args["headers"] = {"reply-to": reply_to}
-
-    message = emails.Message(**message_args)
-
-    for filename, data in email.inline_images:
-        message.attach(filename=filename, content_disposition="inline", data=data)
-
-    message.send(smtp=smtp)
+from nmdmail.helpers import sanitize_email_address
 
 
 class EmailContent:
@@ -147,3 +87,63 @@ class EmailContent:
     @property
     def inline_images(self):
         return self._inline_images
+
+
+def send(
+    email: Union[str, EmailContent],
+    subject: Optional[str] = None,
+    from_email: Optional[str] = None,
+    to_email: Optional[Union[str, List[str]]] = None,
+    cc: Optional[Union[str, List[str]]] = None,
+    bcc: Optional[Union[str, List[str]]] = None,
+    reply_to: Optional[str] = None,
+    smtp: Dict[str, str] = None,
+):
+    """Send markdown email
+
+    Args:
+        email (str/obj): A markdown string or EmailContent object
+        subject (str): subject line
+        from_email (str): sender email address
+        to_email (str/list): recipient email addresses
+        cc (str/list): CC email addresses (string or a list)
+        bcc (str/list): BCC email addresses (string or a list)
+        reply_to (str): Reply-to email address
+        smtp (dict): SMTP configuration (dict)
+
+    Schema of smtp dict:
+        host (str): SMTP server host. Default: localhost
+        port (int): SMTP server port. Default: 25
+        tls (bool): Use TLS. Default: False
+        ssl (bool): Use SSL. Default: False
+        user (bool): SMTP login user. Default empty
+        password (bool): SMTP login password. Default empty
+    """
+    email = EmailContent(email) if isinstance(email, str) else email
+
+    from_email = sanitize_email_address(from_email or email.headers.get("from"))
+    to_email = sanitize_email_address(to_email or email.headers.get("to"))
+    cc = sanitize_email_address(cc or email.headers.get("cc"))
+    bcc = sanitize_email_address(bcc or email.headers.get("bcc"))
+    reply_to = sanitize_email_address(reply_to or email.headers.get("reply-to"))
+
+    message_args = {
+        "html": email.html,
+        "text": email.text,
+        "subject": (subject or email.headers.get("subject", "")),
+        "mail_from": from_email,
+        "mail_to": to_email,
+    }
+    if cc:
+        message_args["cc"] = cc
+    if bcc:
+        message_args["bcc"] = bcc
+    if reply_to:
+        message_args["headers"] = {"reply-to": reply_to}
+
+    message = emails.Message(**message_args)
+
+    for filename, data in email.inline_images:
+        message.attach(filename=filename, content_disposition="inline", data=data)
+
+    message.send(smtp=smtp)
