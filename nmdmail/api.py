@@ -97,7 +97,7 @@ def send(
     cc: Optional[Union[str, List[str]]] = None,
     bcc: Optional[Union[str, List[str]]] = None,
     reply_to: Optional[str] = None,
-    smtp: Dict[str, str] = None,
+    smtp: Optional[Dict[str, str]] = None,
 ):
     """Send markdown email
 
