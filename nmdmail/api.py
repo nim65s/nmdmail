@@ -39,7 +39,7 @@ class EmailContent:
                 if src_uid not in inlines:
                     img_path = os.path.join(image_root, src)
                     with open(img_path, "rb") as f:
-                        inlines[src_uid] = f
+                        inlines[src_uid] = f.read()
                 img["src"] = "cid:" + src_uid
         self._inline_images = inlines.items()
         return soup
