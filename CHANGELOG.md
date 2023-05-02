@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- update dependencies
+- update tools
+- move from flake8 & pyupgrade to ruff
+- fix coverage
+
 ## [v0.3.1] - 2023-02-05
 
 - read inline images
