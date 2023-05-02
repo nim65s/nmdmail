@@ -34,7 +34,7 @@ python = "^3.7"
 optional = true
 
 [tool.poetry.group.tests.dependencies]
-coverage = "^7.2.5"
+coverage = {extras = ["toml"], version = "^7.2.5"}
 mock = "^5.0.2"
 
 [tool.poetry.group.tools]
@@ -58,3 +58,6 @@ target-version = "py37"
 
 [tool.tomlsort]
 all = true
+
+[tool.coverage.run]
+source = ["nmdmail"]
