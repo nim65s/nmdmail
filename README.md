@@ -6,8 +6,8 @@ Fork of https://github.com/yejianye/mdmail, which looks dead.
 [![Tests](https://github.com/nim65s/nmdmail/actions/workflows/test.yml/badge.svg)](https://github.com/nim65s/nmdmail/actions/workflows/test.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/nim65s/nmdmail/main.svg)](https://results.pre-commit.ci/latest/github/nim65s/nmdmail/main)
 [![codecov](https://codecov.io/gh/nim65s/nmdmail/branch/main/graph/badge.svg?token=BLGISGCYKG)](https://codecov.io/gh/nim65s/nmdmail)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6737a84239590ddc0d1e/maintainability)](https://codeclimate.com/github/nim65s/nmdmail/maintainability)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
 
 
 nMdmail sends emails written in Markdown. It could be used as a standalone command-line script or as a python module. The features includes
