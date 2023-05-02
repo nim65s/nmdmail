@@ -22,4 +22,6 @@ jobs:
           PYTHONWARNINGS: error
       - run: poetry run python -m pip install "git+https://github.com/${GITHUB_REPOSITORY}.git#egg=nmdmail"
 
+      - name: gather XML coverage data
+        run: poetry run coverage xml
       - uses: codecov/codecov-action@v3
