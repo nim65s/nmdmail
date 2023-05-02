@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-"""
-A tool to generate html and txt file for a markdown file.
+"""A tool to generate html and txt file for a markdown file.
 
 This is mainly used to generate test cases.
 """
@@ -12,7 +11,8 @@ import nmdmail
 
 def main():
     parser = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.RawTextHelpFormatter
+        description=__doc__,
+        formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument("file", help="Markdown file for email content")
     args = parser.parse_args()

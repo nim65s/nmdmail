@@ -13,7 +13,7 @@ os.environ.update(
         "MDMAIL_USERNAME": "",
         "MDMAIL_PASSWORD": "",
         "MDMAIL_DEFAULT_SENDER": "default@test.com",
-    }
+    },
 )
 
 
@@ -36,7 +36,7 @@ class TestCli(unittest.TestCase):
                 "--bcc=bcc@test.com",
                 "--reply-to=reply-to@test.com",
                 md_file,
-            ]
+            ],
         )
         self.assertEqual(
             send_mock.call_args[1],
@@ -75,7 +75,7 @@ class TestCli(unittest.TestCase):
     def test_print_only(self, send_mock):
         md_file = os.path.join(os.path.dirname(__file__), "emails/basic.md")
         cli.main(
-            ["--subject", "Hello World", "--to=to@test.com", "--print-only", md_file]
+            ["--subject", "Hello World", "--to=to@test.com", "--print-only", md_file],
         )
         send_mock.assert_not_called()
 

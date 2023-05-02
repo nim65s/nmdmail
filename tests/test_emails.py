@@ -19,14 +19,18 @@ class TestEMails(unittest.TestCase):
             with open(os.path.join(EMAIL_DIR, html)) as f:
                 html = f.read()
             self.assertEqual(
-                email.html.strip(), html.strip(), msg="HTML output mismatch"
+                email.html.strip(),
+                html.strip(),
+                msg="HTML output mismatch",
             )
 
         if text:
             with open(os.path.join(EMAIL_DIR, text)) as f:
                 text = f.read()
             self.assertEqual(
-                email.text.strip(), text.strip(), msg="Plain text output mismatch"
+                email.text.strip(),
+                text.strip(),
+                msg="Plain text output mismatch",
             )
 
         return email
@@ -36,13 +40,17 @@ class TestEMails(unittest.TestCase):
 
     def test_unicode(self):
         self.validate_email_content(
-            "unicode.md", html="unicode.html", text="unicode.txt"
+            "unicode.md",
+            html="unicode.html",
+            text="unicode.txt",
         )
 
     @patch("emails.Message")
     def test_email_with_headers(self, message_mock):
         email = self.validate_email_content(
-            "email_headers.md", html="email_headers.html", text="email_headers.txt"
+            "email_headers.md",
+            html="email_headers.html",
+            text="email_headers.txt",
         )
         nmdmail.send(email)
         message_args = message_mock.call_args[1]

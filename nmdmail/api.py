@@ -11,15 +11,16 @@ from nmdmail.helpers import sanitize_email_address
 
 class EmailContent:
     def __init__(self, content, css=None, image_root="."):
-        """Constructor
+        """Constructor.
 
         Args:
+        ----
             content (str): Markdown text
             css (str): Custom CSS style. If not set, use default CSS style.
             image_root (str): Root directory for inline images.
         """
         self._md = markdown.Markdown(
-            extensions=["markdown.extensions.tables", "markdown.extensions.meta"]
+            extensions=["markdown.extensions.tables", "markdown.extensions.meta"],
         )
         self._html = None
         self._inline_images = None
@@ -99,9 +100,10 @@ def send(
     reply_to: Optional[str] = None,
     smtp: Optional[Dict[str, str]] = None,
 ):
-    """Send markdown email
+    """Send markdown email.
 
     Args:
+    ----
         email (str/obj): A markdown string or EmailContent object
         subject (str): subject line
         from_email (str): sender email address

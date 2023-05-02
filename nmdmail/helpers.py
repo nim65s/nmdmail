@@ -18,8 +18,7 @@ def sanitize_email_address(address: Union[str, None, List[str]]) -> Any:
     if match:
         name, address = match.groups()
         return name.strip(), address.strip()
-    else:
-        return address
+    return address
 
 
 def to_bool(val) -> bool:

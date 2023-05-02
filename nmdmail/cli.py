@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-"""Send email written in Markdown.
-"""
+"""Send email written in Markdown."""
 
 import os
 import sys
@@ -13,7 +12,9 @@ from nmdmail.helpers import to_bool
 def main(cli_args=None):
     parser = ArgumentParser(description=__doc__, formatter_class=RawTextHelpFormatter)
     parser.add_argument(
-        "file", nargs="?", help="Markdown file for email content. " "Default to STDIN."
+        "file",
+        nargs="?",
+        help="Markdown file for email content. " "Default to STDIN.",
     )
     parser.add_argument("--subject", "-s", help="Subject line")
     parser.add_argument("--from", "-f", dest="from_", help="From address")
@@ -23,7 +24,10 @@ def main(cli_args=None):
     parser.add_argument("--reply-to", "-r", help="Reply-to address")
     parser.add_argument("--css", help="Use a custom CSS file")
     parser.add_argument(
-        "--print-only", "-p", action="store_true", help="Only print out rendered html"
+        "--print-only",
+        "-p",
+        action="store_true",
+        help="Only print out rendered html",
     )
     if cli_args:
         args = parser.parse_args(cli_args)
@@ -48,7 +52,7 @@ def main(cli_args=None):
 
     if not args.from_:
         from_email = email_content.headers.get("from") or os.environ.get(
-            "MDMAIL_DEFAULT_SENDER"
+            "MDMAIL_DEFAULT_SENDER",
         )
     else:
         from_email = args.from_
