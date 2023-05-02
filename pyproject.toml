@@ -3,7 +3,7 @@ build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]
 
 [tool.black]
-target-version = ['py37']
+target-version = ['py38']
 
 [tool.coverage.run]
 source = ["nmdmail"]
@@ -31,7 +31,7 @@ beautifulsoup4 = "^4.11.1"
 emails = "^0.6"
 lxml = "^4.9.1"
 premailer = "^3.10.0"
-python = "^3.7"
+python = "^3.8"
 
 [tool.poetry.group.tests]
 optional = true
@@ -57,7 +57,7 @@ changelog = "https://github.com/nim65s/nmdmail/blob/main/CHANGELOG.md"
 
 [tool.ruff]
 extend-select = ["A", "B", "C", "COM", "EM", "EXE", "G", "N", "RET", "RUF", "UP", "W", "YTT"]
-target-version = "py37"
+target-version = "py38"
 
 [tool.tomlsort]
 all = true

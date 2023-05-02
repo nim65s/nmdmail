@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- require python 3.8
 - update dependencies
 - update tools
 - move from flake8 & pyupgrade to ruff
