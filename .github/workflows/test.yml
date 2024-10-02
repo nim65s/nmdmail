@@ -24,4 +24,4 @@ jobs:
 
       - name: gather XML coverage data
         run: poetry run coverage xml
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
