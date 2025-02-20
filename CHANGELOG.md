@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- switch to astral tools
+- require python 3.9
+
 ## [v0.4.0] - 2023-05-02
 
 - require python 3.8
