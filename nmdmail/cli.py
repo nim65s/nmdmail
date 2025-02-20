@@ -14,7 +14,7 @@ def main(cli_args=None):
     parser.add_argument(
         "file",
         nargs="?",
-        help="Markdown file for email content. " "Default to STDIN.",
+        help="Markdown file for email content. Default to STDIN.",
     )
     parser.add_argument("--subject", "-s", help="Subject line")
     parser.add_argument("--from", "-f", dest="from_", help="From address")

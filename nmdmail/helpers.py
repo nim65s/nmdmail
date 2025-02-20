@@ -1,8 +1,8 @@
 import re
-from typing import Any, List, Union
+from typing import Any, Union
 
 
-def sanitize_email_address(address: Union[str, None, List[str]]) -> Any:
+def sanitize_email_address(address: Union[str, None, list[str]]) -> Any:
     if address is None:
         return None
 
