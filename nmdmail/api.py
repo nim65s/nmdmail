@@ -28,7 +28,7 @@ class EmailContent:
 
     def _replace_inline_images(self, html, image_root):
         soup = BeautifulSoup(html, "lxml")
-        imgs = soup.findAll("img")
+        imgs = soup.find_all("img")
         inlines = {}
         for img in imgs:
             src = img["src"]
