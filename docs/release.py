@@ -6,6 +6,7 @@
 # ]
 # ///
 
+"""Manage version number in pyproject.toml."""
 
 from argparse import ArgumentParser
 from pathlib import Path
