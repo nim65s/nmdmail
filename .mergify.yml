@@ -1,11 +1,7 @@
 pull_request_rules:
   - name: merge automatically when CI passes and PR is approved
     conditions:
-      - check-success = "test (3.10)"
-      - check-success = "test (3.11)"
-      - check-success = "test (3.12)"
-      - check-success = "test (3.13)"
-      - check-success = "test (3.9)"
+      - check-success = "check-all"
       - check-success = "pre-commit.ci - pr"
       - or:
         - approved-reviews-by = nim65s
