@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - switch to uv_build backend
+- bump python supported versions from 3.9-3.13 to 3.10-3.14
 
 ## [v0.5.0] - 2025-02-21
 

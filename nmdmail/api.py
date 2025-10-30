@@ -1,6 +1,5 @@
 import hashlib
 import os
-from typing import Optional, Union
 
 import emails  # type: ignore
 import markdown
@@ -91,14 +90,14 @@ class EmailContent:
 
 
 def send(
-    email: Union[str, EmailContent],
-    subject: Optional[str] = None,
-    from_email: Optional[str] = None,
-    to_email: Optional[Union[str, list[str]]] = None,
-    cc: Optional[Union[str, list[str]]] = None,
-    bcc: Optional[Union[str, list[str]]] = None,
-    reply_to: Optional[str] = None,
-    smtp: Optional[dict[str, str]] = None,
+    email: str | EmailContent,
+    subject: str | None = None,
+    from_email: str | None = None,
+    to_email: str | list[str] | None = None,
+    cc: str | list[str] | None = None,
+    bcc: str | list[str] | None = None,
+    reply_to: str | None = None,
+    smtp: dict[str, str] | None = None,
 ):
     """Send markdown email.
 
