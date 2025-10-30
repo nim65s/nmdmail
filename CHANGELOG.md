@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- switch to uv_build backend
+
 ## [v0.5.0] - 2025-02-21
 
 - switch to astral tools

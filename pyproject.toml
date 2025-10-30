@@ -1,6 +1,6 @@
 [build-system]
-build-backend = "hatchling.build"
-requires = ["hatchling"]
+build-backend = "uv_build"
+requires = ["uv_build>=0.9.5,<0.10.0"]
 
 [dependency-groups]
 dev = [
@@ -41,3 +41,6 @@ extend-select = ["A", "B", "C", "COM", "EM", "EXE", "G", "N", "RET", "RUF", "UP"
 
 [tool.tomlsort]
 all = true
+
+[tool.uv.build-backend]
+module-root = ""
