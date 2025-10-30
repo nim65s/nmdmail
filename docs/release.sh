@@ -4,7 +4,8 @@
 [[ $(basename "$PWD") == docs ]] && cd ..
 
 OLD=$(uv version --short)
-NEW=$(uv version --short --bump "$1")
+uv version --bump $1
+NEW=$(uv version --short)
 DATE=$(date +%Y-%m-%d)
 
 sed -ri "/__version__ /s/[0-9.]+/$NEW/" nmdmail/__init__.py
