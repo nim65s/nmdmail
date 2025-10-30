@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.6.0] - 2025-10-30
+
 - switch to uv_build backend
 - bump python supported versions from 3.9-3.13 to 3.10-3.14
 
@@ -45,7 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Latest version from @yejianye
 
-[Unreleased]: https://github.com/nim65s/nmdmail/compare/v0.5.0...main
+[Unreleased]: https://github.com/nim65s/nmdmail/compare/v0.6.0...main
+[v0.6.0]: https://github.com/nim65s/nmdmail/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/nim65s/nmdmail/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/nim65s/nmdmail/compare/v0.3.1...v0.4.0
 [v0.3.1]: https://github.com/nim65s/nmdmail/compare/v0.3.0...v0.3.1
