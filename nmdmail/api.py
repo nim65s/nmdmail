@@ -98,6 +98,7 @@ def send(
     bcc: str | list[str] | None = None,
     reply_to: str | None = None,
     smtp: dict[str, str] | None = None,
+    headers: dict[str, str] | None = None,
 ):
     """Send markdown email.
 
@@ -134,13 +135,14 @@ def send(
         "subject": (subject or email.headers.get("subject", "")),
         "mail_from": from_email,
         "mail_to": to_email,
+        "headers": headers or {},
     }
     if cc:
         message_args["cc"] = cc
     if bcc:
         message_args["bcc"] = bcc
     if reply_to:
-        message_args["headers"] = {"reply-to": reply_to}
+        message_args["headers"]["reply-to"] = reply_to
 
     message = emails.Message(**message_args)
 
