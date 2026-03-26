@@ -71,11 +71,11 @@ class EmailContent:
         self._html = BeautifulSoup(html, "lxml").prettify()
 
     @property
-    def html(self):
+    def html(self) -> str:
         return self._html
 
     @property
-    def text(self):
+    def text(self) -> str:
         return "\n".join(self._md.lines)
 
     @property
@@ -85,7 +85,7 @@ class EmailContent:
         }
 
     @property
-    def inline_images(self):
+    def inline_images(self) -> dict[str, bytes]:
         return self._inline_images
 
 
