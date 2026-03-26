@@ -1,5 +1,6 @@
 import hashlib
 import os
+from collections.abc import ItemsView
 
 import emails  # type: ignore
 import markdown
@@ -71,11 +72,11 @@ class EmailContent:
         self._html = BeautifulSoup(html, "lxml").prettify()
 
     @property
-    def html(self):
+    def html(self) -> str:
         return self._html
 
     @property
-    def text(self):
+    def text(self) -> str:
         return "\n".join(self._md.lines)
 
     @property
@@ -85,7 +86,7 @@ class EmailContent:
         }
 
     @property
-    def inline_images(self):
+    def inline_images(self) -> ItemsView[str, bytes]:
         return self._inline_images
 
 
@@ -129,20 +130,22 @@ def send(
     bcc = sanitize_email_address(bcc or email.headers.get("bcc"))
     reply_to = sanitize_email_address(reply_to or email.headers.get("reply-to"))
 
+    headers = headers or {}
+    if reply_to:
+        headers["reply-to"] = reply_to
+
     message_args = {
         "html": email.html,
         "text": email.text,
         "subject": (subject or email.headers.get("subject", "")),
         "mail_from": from_email,
         "mail_to": to_email,
-        "headers": headers or {},
+        "headers": headers,
     }
     if cc:
         message_args["cc"] = cc
     if bcc:
         message_args["bcc"] = bcc
-    if reply_to:
-        message_args["headers"]["reply-to"] = reply_to
 
     message = emails.Message(**message_args)
 
