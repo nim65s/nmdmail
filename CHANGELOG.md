@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.8.0] - 2026-03-26
+
 - add type hints
 
 ## [v0.7.0] - 2026-03-24
@@ -53,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Latest version from @yejianye
 
-[Unreleased]: https://github.com/nim65s/nmdmail/compare/v0.7.0...main
+[Unreleased]: https://github.com/nim65s/nmdmail/compare/v0.8.0...main
+[v0.8.0]: https://github.com/nim65s/nmdmail/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/nim65s/nmdmail/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/nim65s/nmdmail/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/nim65s/nmdmail/compare/v0.4.0...v0.5.0
