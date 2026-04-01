@@ -26,7 +26,7 @@ jobs:
           PYTHONWARNINGS: error
       - name: gather XML coverage data
         run: uv run coverage xml
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
   check:
     if: always()
     name: check-all
