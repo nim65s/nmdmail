@@ -13,8 +13,8 @@ dev = [
 
 [project]
 authors = [
-  {email = "guilhem.saurel@laas.fr", name = "Guilhem Saurel"},
-  {email = "yejianye@gmail.com", name = "Jianye Ye"}
+  { email = "guilhem.saurel@laas.fr", name = "Guilhem Saurel" },
+  { email = "yejianye@gmail.com", name = "Jianye Ye" }
 ]
 dependencies = [
   "beautifulsoup4>=4.13.3",

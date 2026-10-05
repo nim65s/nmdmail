@@ -110,7 +110,7 @@ Sending emails in python is straight-forward.
 ```python
 import nmdmail
 
-email="""
+email = """
 # Sample Email
 
 - Python is awesome
@@ -119,8 +119,12 @@ email="""
 ![Embed local image](../assets/image.jpg)
 """
 
-nmdmail.send(email, subject='Sample Email',
-            from_email='foo@example.com', to_email='bar@example.com')
+nmdmail.send(
+    email,
+    subject="Sample Email",
+    from_email="foo@example.com",
+    to_email="bar@example.com",
+)
 ```
 
 By default, it will use SMTP server on localhost. You could specify a SMTP server as well.
